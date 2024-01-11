@@ -1,0 +1,202 @@
+:root,
+::before,
+::after {
+    --color: #004458;
+    --bg-color: #CCE1E7;
+    --checkbox-bg-color: #EFEFEF;
+    --outline-color: currentColor;
+    --outline-offset: 0;
+    --padding: 0.3rem;
+    --border-size: 0.2rem;
+    --radius: 0.25rem;
+    --timing: 70ms;
+    --slow-timing: 100ms;
+    --checkbox-size: 2rem;
+    --checkbox-border-size: max(2px, 0.15rem);
+    --checkbox-full-size: var(--checkbox-size) + var(--checkbox-border-size);
+    --label-shell-size: var(--padding) + var(--border-size);
+}
+
+.chkbox-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+fieldset.chkbox-group {
+    border: none;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+
+.chkbox-pair {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    gap: 0.5rem;
+    padding: var(--padding);
+    border-radius: var(--radius);
+    color: var(--color);
+    border: 0.2rem solid transparent;
+    cursor: pointer;
+    margin: 0.35rem 0;
+    width: max-content;
+}
+
+.chkbox-pair.block {
+    display: flex;
+    width: fit-content;
+}
+
+
+
+
+.chkbox-pair:hover {
+    /* Ensures the box shadow is above other nearby elements*/
+    position: relative;
+    z-index: 1;
+    background-color: var(--checkbox-bg-color);
+    /*                                                      */
+    /*box-shadow: 0px 8px 10px -4px black;*/
+    /*outline: 0.2rem solid var(--outline-color);
+    outline-offset: var(--outline-offset);*/
+}
+
+.chkbox-pair:hover {
+    /* Ensures the box shadow is above other nearby elements*/
+    z-index: 2;
+    /*                                                      */
+}
+
+.chkbox-pair:focus-within {
+    /* Ensures the box shadow is above other nearby elements*/
+    z-index: 1;
+    /*                                                      */
+    outline: 0.2rem solid var(--outline-color);
+    outline-offset: var(--outline-offset);
+}
+
+.chkbox-pair:active input[type="checkbox"] {
+    scale: 0.9;
+    transition: var(--timing) scale ease-in-out;
+}
+
+
+.chkbox-pair:active input[type="checkbox"]::before {
+    scale: 0.7;
+}
+
+
+
+
+/* only removing outline because we add it to the label *//*
+.chkbox-pair input[type="checkbox"]:focus-visible {
+    outline: max(2px, 0.2rem) solid var(--color);
+    outline-offset: 0.1rem;
+}*/
+
+/* full checkbox-size =  */
+input[type="checkbox"], input[type="radio"] {
+    /* we have a custom focus indicator, so we remove the default */
+    /* indicator by setting outline to none */
+    outline:none;
+    position: relative;
+    display: grid;
+    appearance: none;
+    background-color: white;
+    margin: 0;
+    font: inherit;
+    border: var(--checkbox-border-size) solid var(--color);
+    box-shadow: 0px 2px 5px -2px black;
+    cursor: pointer;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+}
+
+input[type="checkbox"] {
+    border-radius: var(--radius);
+}
+
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:hover,
+input[type="radio"]:focus-visible {
+    transition: var(--slow-timing) box-shadow ease-in-out;
+    box-shadow: 0px 3px 5px -3px black;
+}
+
+input[type="checkbox"]::before,
+input[type="radio"]::before  {
+    content: "";
+    opacity: 0;
+    scale: 0.6;
+    transition: var(--timing) scale ease-in-out;
+    background-color: var(--color);
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="radio"]::before {
+    clip-path: circle(50%);
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+    opacity: 1;
+}
+
+input[type="checkbox"]:checked  {
+    background-color: var(--color);
+    color: var(--checkbox-bg-color);
+}
+
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before {
+    scale: 0.8;
+    opacity: 1;
+    
+}
+
+input[type="checkbox"]:checked::before {
+    background-color: var(--checkbox-bg-color);
+}
+
+input[type="checkbox"]:indeterminate::before {
+    clip-path: polygon(10% 40%, 90% 40%, 90% 60%, 10% 60%);
+    opacity: 1;
+}
+
+
+/* circle focus indicator */
+
+input[type="checkbox"]::after {
+    content: "";
+    top: -0.5rem;
+    bottom: -0.5rem;
+    position: absolute;
+    right: -0.5rem;
+    left: -0.5rem;
+    z-index: -1;
+    border-radius: 50%;
+    background-color: #509BC3;
+    scale: 0.65;
+    opacity: 0;
+}
+
+/* circle focus indicator */
+input[type="checkbox"]:focus-visible::after {
+    transition: var(--slow-timing) scale ease-in-out, var(--timing) opacity ease-in-out;
+    scale: 0.9;
+    opacity: 1;
+}
+
+
+/* small animations */
+
+/**
+ * States:
+ *      - click -> hold -> cancel
+ *      - click -> activate
+ *      - hover (done)
+ */

@@ -1,0 +1,36 @@
+/* dark, medium, and light are all company colors */
+:root {
+    --red-dark: #830002;
+    --red-medium: #C80A00;
+    --red-light: #F4CCCD;
+    --red-bright: #fef6f7;
+
+    --blue-dark: #004458;
+    --blue-medium: #005E86;
+    --blue-light: #CCE1E7;
+    --blue-bright: #eef5f7;
+
+    --yellow-dark: #663D0B;
+    --yellow-medium-dark: #A46311;
+    --yellow-medium:#F9A51A;
+    --yellow-light: #FEEAD1; 
+    --yellow-bright: #fbf6f1;
+
+    --green-dark: #085024;
+    --green-medium: #0C793D;
+    --green-light: #CEE4D7;
+    --green-bright: #eff6f2;
+
+    --purple-dark: #150C18;
+    --purple-medium: #211224;
+    --purple-light: #D2D0D3;
+    --purple-bright: #F0EFF0;
+
+    --black-dark: #171717;
+    --black-medium: #232323;
+    --black-light: #666666;
+    /* These were not part of the original colors */
+    --white-dark: #999999;
+    --white-medium: #DDDDDD;
+    --white-light: #EFEFEF;
+}

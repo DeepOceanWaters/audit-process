@@ -1,0 +1,9 @@
+nav[aria-label="breadcrumbs"] {
+    display: flex;
+    gap: 0.25rem;
+}
+
+nav[aria-label="breadcrumbs"] a:not(:last-child)::after {
+    content: "/";
+}
+

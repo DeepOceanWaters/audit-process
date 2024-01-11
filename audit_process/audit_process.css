@@ -1,0 +1,219 @@
+@media (prefers-reduced-motion: reduce) {
+    body {
+        background-color: pink!important;
+    }
+
+    input[type="checkbox"]::before {
+        transition: 40ms transform ease-in-out!important;
+    }
+    
+}
+
+
+
+
+:root {
+    --outline-color: #65f541;
+    --list-offset: 2.5rem;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    max-width: 900px;
+    padding-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+ul, ol {
+    margin-left: 1rem;
+}
+
+p, ul, ol {
+    margin-bottom: 0.5rem;
+}
+
+[data-settings] {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    border-radius: 0.35rem;
+    border: 2px solid black;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+[data-settings] form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"] {
+    height: 2rem;
+    border: 0.15rem solid #444;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+}
+
+input[type="checkbox"] {
+    width: 2rem;
+    aspect-ratio: 1;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper label {
+    margin-left: 0.2rem;
+}
+
+
+
+/** idea: data-heading="some heading" data-heading-level="4" if desire to create particular level
+        then javascript prepends a heading with the appropriate level with that text content.
+**/
+
+/** note: use pseudo elements to get multiple outlines **/
+
+
+:is(button, .chkbox-pair, .in):hover {
+    background-color: #F9F9F9;
+}
+
+
+.process-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 0.8rem;
+}
+
+.process-wrapper ul {
+    position: relative;
+    list-style: none;
+    padding-left: calc((var(--checkbox-full-size) + var(--label-shell-size) + var(--border-size)));
+    margin: 0;
+}
+
+.process-wrapper > div {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.chkbox-pair::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+[hidden] {
+    display: none!important;
+}
+
+
+.process-wrapper ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: calc((var(--checkbox-full-size) + var(--label-shell-size)) / 2);
+    border-left: var(--border-size) solid var(--color);
+    border-top-right-radius: var(--border-size);
+    border-bottom-left-radius: var(--border-size);
+    z-index: -1;
+}
+
+.chkbox-pair:hover + ul::before {
+    background-color: #EFEFEF;
+}
+
+
+.btn-state {
+    margin-left: 0.4rem;
+    padding: 0.2rem;
+    color: white;
+    /*transform: rotate(-2deg);*/
+}
+
+.positive .btn-state {
+    background-color: var(--green-dark);
+}
+
+.warning .btn-state {
+    background-color: var(--yellow-dark);
+}
+
+button {
+    scroll-margin: 4.3rem;
+}
+
+textarea {
+    margin-bottom: 1rem;
+}
+
+[data-processes-container] > * {
+    margin-bottom: 0.8rem;
+}
+
+[data-processes-overview] {
+    list-style: none;
+    margin: 0;
+}
+
+[data-processes-overview] li {
+    height: 0.35rem;
+}
+
+[data-processes-overview] li * {
+    display: none!important;
+}
+
+[data-processes-overview] li.default {
+    background-color: var(--blue-medium);
+}
+
+[data-processes-overview] li.warning {
+    background-color: var(--yellow-medium);
+}
+
+[data-processes-overview] li.positive {
+    background-color: var(--green-medium);
+}
+/* aside */
+
+.processes-content {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    gap: 1rem;
+}
+
+.aside-lane {
+    position: relative;
+}
+
+.aside-lane aside {
+    position: sticky;
+    top: 1rem;
+}
+
+
+/* end aside */
+
+
+@media screen and (max-width: 700px) {
+    main {
+        padding: 0.5rem;
+    }
+}

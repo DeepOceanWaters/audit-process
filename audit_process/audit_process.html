@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Process</title>
+    <link rel="stylesheet" href="../css-libraries/colorVars.css">
+    <link rel="stylesheet" href="../css-libraries/variables.css">
+    <link rel="stylesheet" href="./audit_process.css">
+    <link rel="stylesheet" href="../css-libraries/checkbox.css">
+    <link rel="stylesheet" href="../css-libraries/buttons.css">
+    <link rel="stylesheet" href="../css-libraries/text-inputs.css">
+    <script src="./audit_process.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="processes-content">
+            <div class="aside-lane">
+                <aside data-progress>
+                    <h2 id="progress-heading">Current Progress</h2>
+                    <progress id="progress-bar" max="0"></progress>
+                    <p id="processes-status" role="status">No processes yet</p>
+                    <ul data-processes-overview></ul>
+                </aside>
+            </div>
+            <div>
+                <div data-settings></div>
+                <div data-processes-container></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

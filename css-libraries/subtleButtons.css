@@ -1,0 +1,15 @@
+.subtle {
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.35rem;
+}
+
+.subtle:is(:hover, :focus-visible) {
+    background-color: var(--white-light);
+}
+
+.subtle:active {
+    box-shadow: 0px 0px 4px -1px inset var(--white-dark);
+}

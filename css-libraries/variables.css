@@ -1,0 +1,13 @@
+:root,
+::before,
+::after {
+    --primary-color: #004458;
+    --hover-bg-color: #EFEFEF;
+    --in-radius: 0.35rem;
+    --very-fast-transtion: 40ms;
+    --fast-transition: 70ms;
+    --medium-transition: 120ms;
+    --slow-transition: 240ms;
+
+    --radius: 0.35rem;
+}
